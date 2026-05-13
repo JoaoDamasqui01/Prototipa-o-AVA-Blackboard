@@ -1,0 +1,415 @@
+/* =============================================
+   VARIÁVEIS E RESET
+   (mesmo token set do projeto)
+============================================= */
+:root {
+  --azul-senac:          #1a4f8a;
+  --azul-escuro:         #143d6e;
+  --azul-medio:          #1e6cb5;
+  --azul-claro:          #d6eaf8;
+  --azul-banner:         #4a90c4;
+  --laranja-destaque:    #f0a500;
+  --cinza-destaque:      #cccccc;
+  --branco:              #ffffff;
+  --cinza-fundo:         #f4f6f8;
+  --cinza-texto:         #555555;
+  --cinza-borda:         #dde3ea;
+  --cinza-placeholder:   #aaaaaa;
+  --sombra-card:         0 8px 32px rgba(0, 0, 0, .28);
+  --radius-card:         8px;
+  --radius-input:        4px;
+  --transition:          .2s ease;
+
+  /* Acessibilidade — tamanhos de fonte base */
+  --fonte-base:          1rem;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: var(--fonte-base);
+  min-height: 100vh;
+  /* Fundo fallback caso a imagem não carregue */
+  background: #4a6a8a;
+}
+
+a   { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+/* =============================================
+   VARIANTES DE TAMANHO (acessibilidade)
+============================================= */
+body.tamanho-medio  { --fonte-base: 1.1rem; }
+body.tamanho-grande { --fonte-base: 1.22rem; }
+
+/* =============================================
+   ALTO CONTRASTE (acessibilidade)
+============================================= */
+body.alto-contraste {
+  --azul-senac:       #000000;
+  --azul-medio:       #000080;
+  --laranja-destaque: #ffcc00;
+  --cinza-texto:      #000000;
+  --cinza-placeholder:#555555;
+  --cinza-borda:      #000000;
+  --branco:           #ffffff;
+}
+
+body.alto-contraste .login-card__corpo {
+  background: #ffffff;
+  border: 2px solid #000;
+}
+
+body.alto-contraste .login-form__input {
+  border-bottom-color: #000;
+  color: #000;
+}
+
+/* =============================================
+   PÁGINA DE LOGIN — container full screen
+============================================= */
+.login-pagina {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Foto de fundo — substitua pelo caminho real se necessário */
+  background-image: url('../imagem/blur.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+/* Overlay escurecedor sobre a foto */
+.login-pagina__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(30, 50, 80, .38);
+  pointer-events: none;
+}
+
+/* =============================================
+   CARD DE LOGIN
+============================================= */
+.login-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 497px;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--sombra-card);
+  /* Entrada suave */
+  animation: cardEntrada .45s cubic-bezier(.22,.68,0,1.2) both;
+}
+
+@keyframes cardEntrada {
+  from { opacity: 0; transform: translateY(28px) scale(.97); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);   }
+}
+
+/* ---- Barra de acessibilidade ---- */
+.login-card__acessibilidade {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: var(--azul-banner);
+}
+
+.acessibilidade__btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex: 1;
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  color: var(--branco);
+  font-family: 'Open Sans', sans-serif;
+  font-size: .78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition);
+  white-space: nowrap;
+}
+
+.acessibilidade__btn:hover {
+  background: rgba(255, 255, 255, .15);
+}
+
+/* Divisor entre os dois botões */
+.acessibilidade__btn + .acessibilidade__btn {
+  border-left: 1px solid rgba(255, 255, 255, .3);
+}
+
+/* Ícone "aA" */
+.acessibilidade__icone-texto {
+  display: flex;
+  align-items: baseline;
+  gap: 1px;
+  line-height: 1;
+}
+
+.icone-texto__a-pequeno {
+  font-family: 'Raleway', sans-serif;
+  font-size: .72rem;
+  font-weight: 700;
+  color: var(--branco);
+}
+
+.icone-texto__a-grande {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: var(--branco);
+}
+
+/* Ícone sol */
+.acessibilidade__icone-sol {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: var(--laranja-destaque);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+/* ---- Cabeçalho azul (logo + slogan) ---- */
+.login-card__header {
+  background: var(--azul-senac);
+  padding: 14px 32px 22px;
+}
+
+.login-card__header-inner {
+  display: flex;
+  align-items: center;
+  gap: 47px;
+}
+
+/* Logo */
+.login-card__logo {
+  flex-shrink: 0;
+}
+
+.login-card__logo-img {
+  width: 110px;
+  /* Se a imagem tiver fundo azul, use filter para remover */
+  /* filter: brightness(0) invert(1); */
+}
+
+/* Divisor vertical laranja */
+.login-card__divisor-vertical {
+  width: 1px;
+  height: 113px;
+  background: var(--cinza-destaque);
+  flex-shrink: 0;
+}
+
+/* Texto slogan */
+.login-card__slogan {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.slogan__linha1 {
+  font-family: 'Raleway', sans-serif;
+  font-size: .72rem;
+  font-weight: 700;
+  color: var(--laranja-destaque);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.slogan__linha2 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.45rem;
+  font-weight: 900;
+  color: var(--branco);
+  letter-spacing: .5px;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+/* ---- Corpo do card (formulário) ---- */
+.login-card__corpo {
+  background: var(--branco);
+  padding: 32px 32px 28px;
+}
+
+/* =============================================
+   FORMULÁRIO DE LOGIN
+============================================= */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Grupo de campo */
+.login-form__grupo {
+  margin-bottom: 20px;
+}
+
+.login-form__label {
+  display: block;
+  font-family: 'Raleway', sans-serif;
+  font-size: .9rem;
+  font-weight: 700;
+  color: var(--azul-medio);
+  margin-bottom: 6px;
+}
+
+/* Input estilo underline (idêntico ao protótipo) */
+.login-form__input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.login-form__input {
+  width: 100%;
+  padding: 8px 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid #bbb;
+  border-radius: 0;
+  outline: none;
+  font-family: 'Open Sans', sans-serif;
+  font-size: var(--fonte-base);
+  color: #333;
+  transition: border-color var(--transition);
+  appearance: none;
+}
+
+.login-form__input::placeholder {
+  color: var(--cinza-placeholder);
+  font-size: .88rem;
+}
+
+.login-form__input:focus {
+  border-bottom-color: var(--azul-medio);
+}
+
+/* Botão olho (mostrar/ocultar senha) */
+.login-form__toggle-senha {
+  position: absolute;
+  right: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: #aaa;
+  transition: color var(--transition);
+  display: flex;
+  align-items: center;
+}
+
+.login-form__toggle-senha:hover { color: var(--azul-medio); }
+
+.login-form__toggle-senha svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.login-form__toggle-senha--ativo { color: var(--azul-medio); }
+
+/* Mensagem de erro */
+.login-form__erro {
+  font-size: .82rem;
+  color: #c0392b;
+  background: #fdf0ef;
+  border-left: 3px solid #c0392b;
+  padding: 8px 12px;
+  border-radius: 0 4px 4px 0;
+  margin-bottom: 14px;
+}
+
+/* Botão de submit */
+.login-form__btn-submit {
+  width: 100%;
+  padding: 15px;
+  margin-top: 12px;
+  background: var(--azul-medio);
+  color: var(--branco);
+  border: none;
+  border-radius: var(--radius-card);
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: .4px;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 3px 10px rgba(30, 108, 181, .35);
+}
+
+.login-form__btn-submit:hover {
+  background: var(--azul-escuro);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(30, 108, 181, .4);
+}
+
+.login-form__btn-submit:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(30, 108, 181, .3);
+}
+
+/* Links auxiliares */
+.login-form__links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.login-form__link {
+  font-size: .8rem;
+  color: var(--cinza-texto);
+  transition: color var(--transition);
+}
+
+.login-form__link:hover { color: var(--azul-medio); }
+
+/* =============================================
+   RESPONSIVO
+============================================= */
+@media (max-width: 440px) {
+  .login-card {
+    max-width: 100%;
+    border-radius: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .login-card__corpo {
+    flex: 1;
+    padding: 28px 24px 32px;
+  }
+
+  .login-card__header {
+    padding: 24px 24px 22px;
+  }
+
+  .slogan__linha2 {
+    font-size: 1.2rem;
+  }
+
+  .acessibilidade__btn {
+    font-size: .72rem;
+    padding: 9px 12px;
+    gap: 5px;
+  }
+}

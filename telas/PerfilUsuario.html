@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil do Usuário</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="../style/perfilUsuarioStyle.css">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+
+  </style>
+</head>
+<body>
+
+  <!-- ==================== CABEÇALHO ==================== -->
+  <header class="cabecalho" role="banner">
+
+    <!-- Logo Senac -->
+    <a href="AVA.html" class="cabecalho__logo" aria-label="Senac – página inicial">
+      <img class="logo__senac" src="../imagem/senac.png" alt="Logo Senac">
+    </a>
+
+    <!-- Usuário logado -->
+    <div class="cabecalho__usuario" role="button" aria-label="Perfil de João Martins">
+      <div class="user__perfil">
+        <div class="cabecalho__avatar" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+        </svg>
+      </div>
+      <span>Rafael Rodrigues</span>
+      </div>
+      <a href="AVA.html#titulo-salas" class="sala__de__aula">Sala de Aula</a>
+      <a href="#" class="cabecalho__link">Linha do tempo</a>
+    </div>
+
+    <!-- Navegação -->
+    <nav class="cabecalho__nav" aria-label="Menu principal">
+      
+      <a href="Login.html" class="cabecalho__logoff" aria-label="Fazer Logoff">
+        <!-- Ícone de saída -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+          <polyline points="16 17 21 12 16 7"/>
+          <line x1="21" y1="12" x2="9" y2="12"/>
+        </svg>
+        Fazer Logoff
+      </a>
+    </nav>
+
+  </header>
+
+  <section class="perfil-banner" aria-hidden="true">
+    <div class="perfil-banner__overlay"></div>
+</section>
+
+<main class="perfil-container">
+  
+  <header class="perfil-header">
+    <div class="perfil-avatar-wrapper">
+      <svg class="perfil-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+      </svg>
+    </div>
+    <h1 class="perfil-nome-exibicao">Rafael Rodrigues</h1>
+  </header>
+
+  <section class="perfil-grid">
+    
+    <div class="perfil-secao">
+      <h2 class="perfil-titulo-tabela">Informações Básicas</h2>
+      <table class="tabela-info">
+        <tr>
+          <th>Nome Completo</th>
+          <td>RAFEL RODRIGUES</td>
+        </tr>
+        <tr>
+          <th>E-mail</th>
+          <td>rafael.rodrigues@exemplo.com</td>
+        </tr>
+        <tr>
+          <th>Código do aluno</th>
+          <td><a href="#" class="link-destaque">Adicionar Código do Aluno</a></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="perfil-divisor-v" aria-hidden="true"></div>
+
+    <div class="perfil-secao perfil-secao-ajuste">
+      <table class="tabela-info">
+        <tr>
+          <th>Idioma</th>
+          <td><a href="#" class="link-perfil">Português(Brasil)</a></td>
+        </tr>
+        <tr>
+          <th>Privacidade</th>
+          <td><a href="#" class="link-perfil">Configurações de visibilidade de perfil</a></td>
+        </tr>
+        <tr>
+          <th>Notificações</th>
+          <td>
+            <ul class="perfil-lista-simples">
+              <li><a href="#" class="link-perfil">Linha do tempo</a></li>
+              <li><a href="#" class="link-perfil">E-mail e Push</a></li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+  </section>
+</main>
+ 
+
+</body>
+</html>

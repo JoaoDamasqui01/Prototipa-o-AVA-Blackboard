@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sala de Aula | Senac AVA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style/salaAulaStyle.css" />
+</head>
+<body>
+
+  <header class="cabecalho" role="banner">
+    <a href="AVA.html" class="cabecalho__logo" aria-label="Senac – página inicial">
+      <img class="logo__senac" src="../imagem/senac.png" alt="Logo Senac" />
+    </a>
+
+    <div class="cabecalho__usuario">
+      <a class="user__perfil" href="PerfilUsuario.html" aria-label="Perfil de Rafael Rodrigues">
+        <div class="cabecalho__avatar" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+          </svg>
+        </div>
+        <span>Rafael Rodrigues</span>
+      </a>
+      <a href="AVA.html#titulo-salas" class="cabecalho__link">Sala de Aula</a>
+      <a href="#" class="cabecalho__link">Linha do tempo</a>
+    </div>
+
+    <nav class="cabecalho__nav" aria-label="Menu principal">
+      <a href="Login.html" class="cabecalho__logoff" aria-label="Fazer Logoff">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+          <polyline points="16 17 21 12 16 7"/>
+          <line x1="21" y1="12" x2="9" y2="12"/>
+        </svg>
+        Fazer Logoff
+      </a>
+    </nav>
+  </header>
+
+  <nav class="status-sistema" id="status-navegacao" aria-label="Localização atual">
+    <div class="status-sistema__inner">
+      <span id="status-curso">Tecnologia em Análise e Desenvolvimento de Sistemas</span>
+      <span class="status-sistema__separador">/</span>
+      <span id="status-semestre"></span>
+      <span class="status-sistema__separador status-sistema__separador--materia">/</span>
+      <span id="status-materia"></span>
+      <span class="status-sistema__separador status-sistema__separador--bimestre" style="display:none;">/</span>
+      <span id="status-bimestre" style="display:none;"></span>
+    </div>
+  </nav>
+
+  <div class="curso-breadcrumb" role="region" aria-label="Informações do curso">
+    <div class="curso-breadcrumb__inner">
+      <p class="curso-breadcrumb__titulo">
+        Faculdade Senac Maringá - Tecnologia em Análise e Desenvolvimento de Sistemas
+        <span class="curso-breadcrumb__codigo">(PR-3-03CST-ADS-03N24-1-07)</span>
+      </p>
+    </div>
+  </div>
+
+  <main class="principal" id="conteudo-principal">
+
+    <section class="semestres" aria-labelledby="titulo-semestres">
+      <h2 class="sr-only" id="titulo-semestres">Selecione o Período</h2>
+      <div class="semestres__grade" role="list">
+        <button class="semestre-btn" data-semestre="1">Período 1</button>
+        <button class="semestre-btn " data-semestre="2">Período 2</button>
+        <button class="semestre-btn" data-semestre="3">Período 3</button>
+        <button class="semestre-btn" data-semestre="4">Período 4</button>
+        <button class="semestre-btn" data-semestre="5">Período 5</button>
+      </div>
+    </section>
+
+    <section class="disciplinas" aria-labelledby="titulo-disciplinas">
+      <h2 class="disciplinas__titulo" id="titulo-disciplinas">
+        Disciplinas do Período <span class="disciplinas__titulo-num">2</span>
+      </h2>
+      <div class="disciplinas__grade" role="list">
+        <button class="disciplina-btn" data-materia="Banco de Dados II">Banco de Dados II</button>
+        <button class="disciplina-btn" data-materia="UX- Arquitetura e Usabilidade">UX- Arquitetura e Usabilidade</button>
+        <button class="disciplina-btn" data-materia="Padrões de Projeto, Frameworks e APIs">Padrões de Projeto, Frameworks e APIs</button>
+        <button class="disciplina-btn" data-materia="Startup Model - Senior">Startup Model - Senior</button>
+        <button class="disciplina-btn" data-materia="Tecnologias Móveis e Híbridas">Tecnologias Móveis e Híbridas</button>
+        <button class="disciplina-btn" data-materia="Tecnologias para Internet">Tecnologias para Internet</button>
+      </div>
+    </section>
+
+    <hr class="divisor" aria-hidden="true" />
+
+    <section class="materia" aria-labelledby="titulo-materia">
+      <h2 class="materia__titulo" id="titulo-materia">
+        <span class="materia__titulo-num">Tecnologias Móveis e Híbridas</span>
+      </h2>
+
+      <div class="bimestre">
+        <button class="bimestre__cabecalho" id="bimestre-1-titulo" aria-expanded="true" aria-controls="bimestre-1-conteudo" onclick="toggleBimestre(this)">
+          <span class="bimestre__icone-pasta"><svg viewBox="0 0 24 24"><path d="M10 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8l-2-2z"/></svg></span>
+          <span class="bimestre__label">Bimestre 1</span>
+          <span class="bimestre__seta"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </button>
+        <ul class="bimestre__lista" id="bimestre-1-conteudo">
+          <li class="material-item"><a href="#" class="material-item__link">Aula 01</a></li>
+          <li class="material-item"><a href="#" class="material-item__link">Atividade de UX</a></li>
+        </ul>
+      </div>
+
+      <div class="bimestre">
+        <button class="bimestre__cabecalho" id="bimestre-2-titulo" aria-expanded="false" aria-controls="bimestre-2-conteudo" onclick="toggleBimestre(this)">
+          <span class="bimestre__icone-pasta"><svg viewBox="0 0 24 24"><path d="M10 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8l-2-2z"/></svg></span>
+          <span class="bimestre__label">Bimestre 2</span>
+          <span class="bimestre__seta"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </button>
+        <ul class="bimestre__lista bimestre__lista--fechada" id="bimestre-2-conteudo">
+            <li class="material-item"><span class="material-item__nome">Conteúdo em breve...</span></li>
+        </ul>
+      </div>
+
+  
+      <a href="#" class="material-item__link">
+        <span class="material-item__icone" aria-hidden="true">
+          <!-- Inserir o SVG aqui -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 40px; height: 47px;">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+        </span>
+        <span class="material-item__nome">Plano de Ensino</span>
+      </a>
+  
+    
+    </section>
+  </main>
+
+  <script>
+    /* =============================================
+       CONTROLE DE SEMESTRES
+    ============================================= */
+    document.querySelectorAll('.semestre-btn').forEach(btn => {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.semestre-btn').forEach(b => b.classList.remove('semestre-btn--ativo'));
+        this.classList.add('semestre-btn--ativo');
+        document.querySelectorAll('.disciplina-btn').forEach(b => b.classList.remove('disciplina-btn--ativo'));
+        document.querySelectorAll('.bimestre__lista').forEach(l => l.classList.add('bimestre__lista--fechada'));
+        document.querySelectorAll('.bimestre__cabecalho').forEach(b => b.setAttribute('aria-expanded', 'false'));
+        
+        const num = this.dataset.semestre;
+        document.querySelector('.disciplinas__titulo-num').textContent = num;
+        document.getElementById('status-semestre').textContent = "Semestre " + num;
+
+        // Reset lower breadcrumb levels ao mudar de semestre
+        const statusMateria = document.getElementById('status-materia');
+        const statusBimestre = document.getElementById('status-bimestre');
+        const separadorMateria = document.querySelector('.status-sistema__separador--materia');
+        const separadorBimestre = document.querySelector('.status-sistema__separador--bimestre');
+
+        statusMateria.textContent = '';
+        statusMateria.style.display = 'none';
+        separadorMateria.style.display = 'none';
+
+        statusBimestre.textContent = '';
+        statusBimestre.style.display = 'none';
+        separadorBimestre.style.display = 'none';
+      });
+    });
+
+    /* =============================================
+       CONTROLE DE DISCIPLINAS
+    ============================================= */
+    document.querySelectorAll('.disciplina-btn').forEach(btn => {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.disciplina-btn').forEach(b => b.classList.remove('disciplina-btn--ativo'));
+        this.classList.add('disciplina-btn--ativo');
+
+        const nomeMateria = this.dataset.materia;
+        document.querySelector('.materia__titulo-num').textContent = nomeMateria;
+
+        const statusMateria = document.getElementById('status-materia');
+        const separadorMateria = document.querySelector('.status-sistema__separador--materia');
+        const statusBimestre = document.getElementById('status-bimestre');
+        const separadorBimestre = document.querySelector('.status-sistema__separador--bimestre');
+
+        statusMateria.textContent = nomeMateria;
+        statusMateria.style.display = 'inline';
+        separadorMateria.style.display = 'inline';
+
+        statusBimestre.textContent = '';
+        statusBimestre.style.display = 'none';
+        separadorBimestre.style.display = 'none';
+      });
+    });
+
+    /* =============================================
+       TOGGLE BIMESTRE (ACCORDION + STATUS)
+    ============================================= */
+    function toggleBimestre(btn) {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      const targetId = btn.getAttribute('aria-controls');
+      const lista = document.getElementById(targetId);
+      const labelBimestre = btn.querySelector('.bimestre__label').textContent;
+
+      // Fecha todos antes de abrir o novo (Opcional - Estilo Accordion)
+      // Se quiser que vários fiquem abertos, remova as próximas duas linhas
+      document.querySelectorAll('.bimestre__lista').forEach(l => l.classList.add('bimestre__lista--fechada'));
+      document.querySelectorAll('.bimestre__cabecalho').forEach(b => b.setAttribute('aria-expanded', 'false'));
+
+      if (!expanded) {
+        btn.setAttribute('aria-expanded', 'true');
+        lista.classList.remove('bimestre__lista--fechada');
+        
+        // ATUALIZA STATUS DO SISTEMA
+        const statusBimestre = document.getElementById('status-bimestre');
+        const separador = document.querySelector('.status-sistema__separador--bimestre');
+        
+        statusBimestre.textContent = labelBimestre;
+        statusBimestre.style.display = 'inline';
+        separador.style.display = 'inline';
+      } else {
+        btn.setAttribute('aria-expanded', 'false');
+        lista.classList.add('bimestre__lista--fechada');
+        
+        // Esconde o status se fechar
+        document.getElementById('status-bimestre').style.display = 'none';
+        document.querySelector('.status-sistema__separador--bimestre').style.display = 'none';
+      }
+    }
+
+    // Iniciar com o primeiro bimestre visível no status
+    window.onload = () => {
+        const primeiroBtn = document.querySelector('.bimestre__cabecalho');
+        if(primeiroBtn && primeiroBtn.getAttribute('aria-expanded') === 'true') {
+            const label = primeiroBtn.querySelector('.bimestre__label').textContent;
+            document.getElementById('status-bimestre').textContent = label;
+            document.getElementById('status-bimestre').style.display = 'inline';
+            document.querySelector('.status-sistema__separador--bimestre').style.display = 'inline';
+        }
+    };
+  </script>
+</body>
+</html>

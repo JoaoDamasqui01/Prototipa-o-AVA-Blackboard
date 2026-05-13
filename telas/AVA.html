@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AVA – Ambiente Virtual de Aprendizagem | Senac</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="../style/homeStyle.css">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+
+  </style>
+</head>
+<body>
+
+  <!-- ==================== CABEÇALHO ==================== -->
+  <header class="cabecalho" role="banner">
+
+    <!-- Logo Senac -->
+    <a href="#" class="cabecalho__logo" aria-label="Senac – página inicial">
+      <img class="logo__senac" src="../imagem/senac.png" alt="Logo Senac">
+    </a>
+
+    <!-- Usuário logado -->
+    <div class="cabecalho__usuario" role="button" aria-label="Perfil de João Martins">
+      
+    <a class="user__perfil"  href="PerfilUsuario.html" aria-hidden="true">
+        <div class="cabecalho__avatar" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+        </svg>
+      </div>
+      <span>Rafael Rodrigues</span>
+    </a>
+      <a href="#titulo-salas" class="sala__de__aula">Sala de Aula</a>
+      <a href="#" class="cabecalho__link">Linha do tempo</a>
+    </div>
+
+    <!-- Navegação -->
+    <nav class="cabecalho__nav" aria-label="Menu principal">
+      
+      <a href="Login.html" class="cabecalho__logoff" aria-label="Fazer Logoff">
+        <!-- Ícone de saída -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+          <polyline points="16 17 21 12 16 7"/>
+          <line x1="21" y1="12" x2="9" y2="12"/>
+        </svg>
+        Fazer Logoff
+      </a>
+    </nav>
+
+  </header>
+
+  <!-- ==================== BANNER ==================== -->
+  <section class="banner" aria-label="Banner do Ambiente Virtual de Aprendizagem">
+    <img class="banner_Imagem" src="../imagem/bannerPagInstituicao.png" alt="Banner do Ambiente Virtual de Aprendizagem" srcset="">
+  </section>
+
+  <!-- ==================== CONTEÚDO PRINCIPAL ==================== -->
+  <main class="principal" id="conteudo-principal">
+
+    <!-- ---- Seção: Informações ---- -->
+    <!--<section aria-labelledby="titulo-informacoes">
+      <h2 class="secao-titulo" id="titulo-informacoes">Informações</h2>
+
+      <article class="aviso" role="note" aria-label="Aviso de manutenção do sistema">
+
+        <div class="aviso__cabecalho" aria-hidden="true">-->
+          <!-- Ícone monitor com atenção -->
+          <!--<svg class="aviso__icone-monitor" viewBox="0 0 60 52" xmlns="http://www.w3.org/2000/svg">
+            <rect x="5" y="2" width="50" height="36" rx="5" fill="none" stroke="#fff" stroke-width="2.5"/>
+            <rect x="5" y="2" width="50" height="36" rx="5" fill="#fff" opacity=".12"/>
+            <line x1="22" y1="38" x2="18" y2="48" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="38" y1="38" x2="42" y2="48" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="14" y1="48" x2="46" y2="48" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+          --><!-- ! -->
+            <!--<text x="30" y="27" text-anchor="middle" font-family="sans-serif" font-weight="900"
+                  font-size="20" fill="#fff">!</text>
+          </svg>
+        </div>
+
+        <div class="aviso__corpo">
+          <p class="aviso__saudacao">Prezado(a) usuário(a),</p>
+          <p class="aviso__texto">
+            Informamos que o Ambiente Virtual de Aprendizagem - AVA passará por uma manutenção
+            programada no dia <strong>07/05.</strong>
+          </p>
+          <p class="aviso__texto">
+            Durante esse período, <strong>o sistema ficará indisponível, com previsão de retorno
+            às 17h do mesmo dia.</strong>
+          </p>
+          <p class="aviso__texto">
+            Agradecemos a compreensão e, em caso de dúvidas, ficamos à disposição.
+          </p>
+          <p class="aviso__assinatura">Cordialmente,</p>
+        </div>
+
+      </article>
+    </section>
+    -->
+    <section aria-labelledby="titulo-tutorial">
+      <h2 class="secao-titulo">Tutorial de Navegação</h2>
+      <img class="imgTutorial" src="../imagem/tutorial.png" alt="" sizes="" srcset="">
+    </section>
+
+    <!-- ---- Seção: Salas de Aula ---- -->
+    <section aria-labelledby="titulo-salas">
+     
+      <h2 class="secao-titulo" id="titulo-salas">Salas de Aulas</h2>
+
+      <!-- Filtros -->
+      <div class="salas-cabecalho" role="search" aria-label="Filtrar salas de aula">
+        <input
+          type="search"
+          class="salas-cabecalho__busca"
+          placeholder="Pesquisa por nome"
+          aria-label="Pesquisar sala por nome"
+        />
+        <select class="salas-cabecalho__categoria" aria-label="Filtrar por categoria">
+          <option value="">Categoria</option>
+          <option value="tecnologia">Tecnologia</option>
+          <option value="saude">Saúde</option>
+          <option value="gestao">Gestão</option>
+        </select>
+      </div>
+
+      <!-- Lista de cursos -->
+      <h3 class="cursos-titulo">Cursos</h3>
+
+      <div class="cursos-grade" role="list">
+
+        <!-- Card 1 -->
+          <article class="curso-card" role="listitem">
+            <a href="SalaAula.html" class="curso-card__full-link" aria-label="Abrir sala de aula"></a>
+            <div class="curso-card__imagem">
+              <img class="card__imagem" src="../imagem/bannerCodigo.png" alt="" srcset="">
+            </div>
+            <div class="curso-card__corpo">
+              <p class="curso-card__codigo">PR-3-03CST-ADS-03N24-1-07</p>
+              <p class="curso-card__nome">
+                Faculdade Senac Maringá - Tecnologia em Análise e Desenvolvimento de Sistemas
+                (PR-3-03CST-ADS-03N24-1-07)
+              </p>
+              <div class="curso-card__rodape">
+                <div class="instrutores-container">
+                  <a href="javascript:void(0)" class="curso-card__link-instrutores link-instrutores">Ver Instrutores</a>
+                  <div class="balao-instrutores">
+                    <div class="balao-conteudo">
+                      <div class="instrutor-item">
+                        <span class="container-icone">
+                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35px" height="40px">
+                          <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                        </svg>
+                        </span>
+                        <span>RAFAEL ALVES FLORINDO</span>
+                      </div>
+                      <div class="instrutor-item">
+                        <span class="container-icone">
+                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35px" height="40px">
+                          <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                        </svg>
+                        </span>
+                        <span>IVERSON BARRETO MANFRINATO</span>
+                      </div>
+                      <div class="instrutor-item">
+                       <span class="container-icone">
+                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35px" height="40px">
+                          <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                        </svg>
+                        </span>
+                        <span>MARIA SILVA</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  class="curso-card__favorito"
+                  aria-label="Adicionar curso aos favoritos"
+                  title="Favoritar"
+                  onclick="this.classList.toggle('ativo')"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+        <!-- Card 2 -->
+        <article class="curso-card" role="listitem">
+          <a href="SalaAula.html" class="curso-card__full-link" aria-label="Abrir sala de aula"></a>
+          <div class="curso-card__imagem">
+            <img class="card__imagem" src="../imagem/bannerCodigo.png" alt="" srcset="">
+          </div>
+          <div class="curso-card__corpo">
+            <p class="curso-card__codigo">PR-3-03CST-ADS-03N24-1-07</p>
+            <p class="curso-card__nome">
+              Faculdade Senac Maringá - Tecnologia em Análise e Desenvolvimento de Sistemas
+              (PR-3-03CST-ADS-03N24-1-07)
+            </p>
+            <div class="curso-card__rodape">
+                <div class="instrutores-container">
+                  <a href="javascript:void(0)" class="curso-card__link-instrutores link-instrutores">Ver Instrutores</a>
+                  <div class="balao-instrutores">
+                    <div class="balao-conteudo">
+                      <div class="instrutor-item">
+                       <span class="container-icone">
+                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35px" height="40px">
+                          <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                        </svg>
+                        </span>
+                        <span>RAFAEL ALVES FLORINDO</span>
+                      </div>
+                      <div class="instrutor-item">
+                       <span class="container-icone">
+                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35px" height="40px">
+                          <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                        </svg>
+                        </span>
+                        <span>IVERSON BARRETO MANFRINATO</span>
+                      </div>
+                      <div class="instrutor-item">
+                       <span class="container-icone">
+                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35px" height="40px">
+                          <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                        </svg>
+                        </span>
+                        <span>MARIA SILVA</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  class="curso-card__favorito"
+                  aria-label="Adicionar curso aos favoritos"
+                  title="Favoritar"
+                  onclick="this.classList.toggle('ativo')"
+                >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="curso-card" role="listitem">
+          <a href="SalaAula.html" class="curso-card__full-link" aria-label="Abrir sala de aula"></a>
+          <div class="curso-card__imagem">
+              <img class="card__imagem" src="../imagem/bannerCodigo.png" alt="Banner do curso de Análise e Desenvolvimento de Sistemas" >
+          </div>
+          <div class="curso-card__corpo">
+            <p class="curso-card__codigo">PR-3-03CST-ADS-03N24-1-07</p>
+            <p class="curso-card__nome">
+              Faculdade Senac Maringá - Tecnologia em Análise e Desenvolvimento de Sistemas
+              (PR-3-03CST-ADS-03N24-1-07)
+            </p>
+            <div class="curso-card__rodape">
+              <div class="instrutores-container">
+                <a href="javascript:void(0)" class="curso-card__link-instrutores link-instrutores">Ver Instrutores</a>
+                <div class="balao-instrutores">
+                  <div class="balao-conteudo">
+                    <div class="instrutor-item">
+                     <span class="container-icone">
+                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35px" height="40px">
+                          <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                        </svg>
+                        </span>
+                      <span>RAFAEL ALVES FLORINDO</span>
+                    </div>
+                    <div class="instrutor-item">
+                     <span class="container-icone">
+                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35px" height="40px">
+                          <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                        </svg>
+                        </span>
+                      <span>IVERSON BARRETO MANFRINATO</span>
+                    </div>
+                    <div class="instrutor-item">
+                     <span class="container-icone">
+                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35px" height="40px">
+                          <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                        </svg>
+                        </span>
+                      <span>MARIA SILVA</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="curso-card__favorito"
+                aria-label="Adicionar curso aos favoritos"
+                title="Favoritar"
+                onclick="this.classList.toggle('ativo')"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="curso-card" role="listitem">
+          <a href="SalaAula.html" class="curso-card__full-link" aria-label="Abrir sala de aula"></a>
+          <div class="curso-card__imagem">
+              <img class="card__imagem" src="../imagem/bannerCodigo.png" alt="Banner do curso de Análise e Desenvolvimento de Sistemas" >
+          </div>
+          <div class="curso-card__corpo">
+            <p class="curso-card__codigo">PR-3-03CST-ADS-03N24-1-07</p>
+            <p class="curso-card__nome">
+              Faculdade Senac Maringá - Tecnologia em Análise e Desenvolvimento de Sistemas
+              (PR-3-03CST-ADS-03N24-1-07)
+            </p>
+            <div class="curso-card__rodape">
+              <div class="instrutores-container">
+                <a href="javascript:void(0)" class="curso-card__link-instrutores link-instrutores">Ver Instrutores</a>
+                <div class="balao-instrutores">
+                  <div class="balao-conteudo">
+                    <div class="instrutor-item">
+                     <span class="container-icone">
+                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35px" height="40px">
+                          <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                        </svg>
+                        </span>
+                      <span>RAFAEL ALVES FLORINDO</span>
+                    </div>
+                    <div class="instrutor-item">
+                     <span class="container-icone">
+                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35px" height="40px">
+                          <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                        </svg>
+                        </span>
+                      <span>IVERSON BARRETO MANFRINATO</span>
+                    </div>
+                    <div class="instrutor-item">
+                     <span class="container-icone">
+                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35px" height="40px">
+                          <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                        </svg>
+                        </span>
+                      <span>MARIA SILVA</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="curso-card__favorito"
+                aria-label="Adicionar curso aos favoritos"
+                title="Favoritar"
+                onclick="this.classList.toggle('ativo')"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+
+      </div><!-- /cursos-grade -->
+    </section>
+
+  </main>
+
+  <script>
+    document.querySelectorAll('.link-instrutores').forEach(btn => {
+      btn.addEventListener('click', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        const balao = this.closest('.instrutores-container').querySelector('.balao-instrutores');
+        balao.classList.toggle('ativo');
+      });
+    });
+
+    window.addEventListener('click', function (event) {
+      document.querySelectorAll('.balao-instrutores.ativo').forEach(balao => {
+        const container = balao.closest('.instrutores-container');
+        if (container && !container.contains(event.target)) {
+          balao.classList.remove('ativo');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Senac AVA – Ambiente Virtual de Aprendizagem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style/loginStyle.css" />
+</head>
+<body>
+
+  <!-- ==================== TELA DE LOGIN ==================== -->
+  <div class="login-pagina" role="main">
+
+    <!-- Imagem de fundo com overlay escuro -->
+    <div class="login-pagina__overlay" aria-hidden="true"></div>
+
+    <!-- Card central -->
+    <div class="login-card" role="dialog" aria-labelledby="login-titulo">
+
+      <!-- Barra de acessibilidade -->
+      <div class="login-card__acessibilidade" role="toolbar" aria-label="Opções de acessibilidade">
+        <button
+          class="acessibilidade__btn"
+          id="btn-tamanho-texto"
+          aria-label="Alterar tamanho do texto"
+          title="Alterar tamanho do texto"
+          onclick="alterarTamanhoTexto()"
+        >
+          <!-- Ícone aA -->
+          <span class="acessibilidade__icone-texto" aria-hidden="true">
+            <span class="icone-texto__a-pequeno">A</span>
+            <span class="icone-texto__a-grande">A</span>
+          </span>
+          Alterar tamanho do texto
+        </button>
+
+        <button
+          class="acessibilidade__btn"
+          id="btn-contraste"
+          aria-label="Configurar contraste"
+          title="Configurar contraste"
+          onclick="configurarContraste()"
+        >
+          <!-- Ícone engrenagem/sol -->
+          <svg class="acessibilidade__icone-sol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <line x1="12" y1="2"  x2="12" y2="5"/>
+            <line x1="12" y1="19" x2="12" y2="22"/>
+            <line x1="4.22" y1="4.22"  x2="6.34" y2="6.34"/>
+            <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/>
+            <line x1="2"  y1="12" x2="5"  y2="12"/>
+            <line x1="19" y1="12" x2="22" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/>
+            <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/>
+          </svg>
+          Configurar contraste
+        </button>
+      </div>
+
+      <!-- Cabeçalho azul com logo + slogan -->
+      <div class="login-card__header" id="login-titulo">
+        <div class="login-card__header-inner">
+
+          <!-- Logo Senac SVG (inline para não depender do arquivo) -->
+          <div class="login-card__logo" aria-label="Senac">
+            <img src="../imagem/senac.png" alt="Logo Senac" class="login-card__logo-img" />
+          </div>
+
+          <!-- Divisor vertical -->
+          <div class="login-card__divisor-vertical" aria-hidden="true"></div>
+
+          <!-- Texto AVA -->
+          <div class="login-card__slogan">
+            <span class="slogan__linha1">AMBIENTE VIRTUAL DE</span>
+            <span class="slogan__linha2">APRENDIZAGEM</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Formulário -->
+      <div class="login-card__corpo">
+        <form class="login-form" action="AVA.html" method="get" novalidate aria-label="Formulário de login">
+
+          <!-- Campo: Nome de usuário -->
+          <div class="login-form__grupo">
+            <label class="login-form__label" for="campo-usuario">
+              Nome de usuário
+            </label>
+            <input
+              class="login-form__input"
+              type="text"
+              id="campo-usuario"
+              name="usuario"
+              placeholder="Usuário"
+              autocomplete="username"
+              required
+              aria-required="true"
+            />
+          </div>
+
+          <!-- Campo: Senha -->
+          <div class="login-form__grupo">
+            <label class="login-form__label" for="campo-senha">
+              Senha
+            </label>
+            <div class="login-form__input-wrapper">
+              <input
+                class="login-form__input"
+                type="password"
+                id="campo-senha"
+                name="senha"
+                placeholder="Senha"
+                autocomplete="current-password"
+                required
+                aria-required="true"
+              />
+              <button
+                type="button"
+                class="login-form__toggle-senha"
+                aria-label="Mostrar ou ocultar senha"
+                onclick="toggleSenha(this)"
+              >
+                <!-- Ícone olho -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Mensagem de erro (oculta por padrão) -->
+          <p class="login-form__erro" id="login-erro" role="alert" aria-live="polite" hidden>
+            Usuário ou senha incorretos. Tente novamente.
+          </p>
+
+          <!-- Botão de login -->
+          <button type="submit" class="login-form__btn-submit">
+            Fazer login
+          </button>
+
+          <!-- Links auxiliares -->
+          <div class="login-form__links">
+            <a href="#" class="login-form__link">Pré-requisitos técnicos</a>
+            <a href="#" class="login-form__link">Esqueceu a senha?</a>
+          </div>
+
+        </form>
+      </div>
+      <!-- /login-card__corpo -->
+
+    </div>
+    <!-- /login-card -->
+
+  </div>
+  <!-- /login-pagina -->
+
+  <script>
+    /* =============================================
+       MOSTRAR / OCULTAR SENHA
+    ============================================= */
+    function toggleSenha(btn) {
+      const input = btn.previousElementSibling;
+      const mostrar = input.type === 'password';
+      input.type = mostrar ? 'text' : 'password';
+      btn.setAttribute('aria-label', mostrar ? 'Ocultar senha' : 'Mostrar senha');
+      btn.classList.toggle('login-form__toggle-senha--ativo', mostrar);
+    }
+
+    /* =============================================
+       ALTERAR TAMANHO DO TEXTO
+    ============================================= */
+    const tamanhos = ['tamanho-normal', 'tamanho-medio', 'tamanho-grande'];
+    let tamanhoAtual = 0;
+
+    function alterarTamanhoTexto() {
+      document.body.classList.remove(...tamanhos);
+      tamanhoAtual = (tamanhoAtual + 1) % tamanhos.length;
+      document.body.classList.add(tamanhos[tamanhoAtual]);
+    }
+
+    /* =============================================
+       CONFIGURAR CONTRASTE
+    ============================================= */
+    function configurarContraste() {
+      document.body.classList.toggle('alto-contraste');
+    }
+
+    /* =============================================
+       VALIDAÇÃO BÁSICA DO FORM
+    ============================================= */
+    document.querySelector('.login-form').addEventListener('submit', function (e) {
+      const usuario = document.getElementById('campo-usuario').value.trim();
+      const senha   = document.getElementById('campo-senha').value.trim();
+      const erro    = document.getElementById('login-erro');
+
+      if (!usuario || !senha) {
+        e.preventDefault();
+        erro.hidden = false;
+        erro.textContent = 'Preencha o usuário e a senha para continuar.';
+        document.getElementById(!usuario ? 'campo-usuario' : 'campo-senha').focus();
+      } else {
+        erro.hidden = true;
+      }
+    });
+  </script>
+
+</body>
+</html>

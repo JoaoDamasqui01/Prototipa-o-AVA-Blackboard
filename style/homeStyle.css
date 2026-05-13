@@ -1,0 +1,455 @@
+ /* =============================================
+       VARIÁVEIS E RESET
+    ============================================= */
+    :root {
+      --azul-senac:      #1a4f8a;
+      --azul-escuro:     #143d6e;
+      --azul-medio:      #1e6cb5;
+      --azul-claro:      #d6eaf8;
+      --azul-banner:     #4a90c4;
+      --laranja-destaque:#f0a500;
+      --branco:          #ffffff;
+      --cinza-fundo:     #f4f6f8;
+      --cinza-texto:     #555555;
+      --cinza-borda:     #dde3ea;
+      --sombra-card:     0 2px 8px rgba(0,0,0,.10);
+      --radius-card:     8px;
+      --radius-input:    6px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: var(--cinza-fundo);
+      color: var(--cinza-texto);
+      min-height: 100vh;
+    }
+
+    img { display: block; max-width: 151%; }
+    a   { color: inherit; text-decoration: none; }
+
+    /* =============================================
+       CABEÇALHO / NAVBAR
+    ============================================= */
+    .cabecalho {
+      background: var(--azul-senac);
+      padding: 0 40px;
+      height: 115px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 6px rgba(0,0,0,.25);
+    }
+
+    /* Logo */
+    .cabecalho__logo {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    img.logo__senac {
+    width: 9rem;
+    }
+
+    /* Usuário */
+    .cabecalho__usuario {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      color: var(--branco);
+      font-size: .95rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .user__perfil {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cabecalho__avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #4a7ab5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .cabecalho__avatar svg {
+      width: 22px;
+      height: 22px;
+      fill: var(--branco);
+    }
+
+    /* Nav links */
+    .cabecalho__nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    /*span.sala__de__aula {
+      margin: 0px 98px;
+    }*/
+
+    a.link__perfil{
+      display: flex;
+    }
+
+    .cabecalho__link {
+      color: var(--branco);
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      font-size: .95rem;
+      letter-spacing: .4px;
+      cursor: pointer;
+      transition: opacity .2s;
+    }
+    .cabecalho__link:hover { opacity: .8; }
+
+    /* Logoff */
+    .cabecalho__logoff {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--branco);
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      font-size: .95rem;
+      cursor: pointer;
+      transition: opacity .2s;
+    }
+    .cabecalho__logoff:hover { opacity: .8; }
+    .cabecalho__logoff svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: var(--branco);
+      stroke-width: 2.2;
+    }
+
+    /* =============================================
+       BANNER PRINCIPAL
+    ============================================= */
+    .banner {
+      width: 100%;
+      background: linear-gradient(135deg, #c7dff0 0%, #e8f4fb 45%, #b8d9ef 100%);
+      overflow: hidden;
+      position: relative;
+      height: 230px;;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .banner_Imagem{background-size: cover;}
+
+    /* =============================================
+       CONTEÚDO PRINCIPAL
+    ============================================= */
+    .principal {
+      max-width: 1140px;
+      margin: 32px auto;
+    }
+
+    /* =============================================
+       SEÇÃO INFORMAÇÕES
+    ============================================= */
+    .secao-titulo {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    .aviso {
+      background: var(--branco);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: var(--sombra-card);
+      margin-bottom: 36px;
+    }
+
+    .aviso__cabecalho {
+      background: var(--azul-medio);
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .aviso__icone-monitor {
+      width: 52px;
+      height: 52px;
+    }
+
+    .aviso__corpo {
+      background: var(--azul-claro);
+      padding: 24px 32px 28px;
+    }
+
+    .aviso__saudacao {
+      font-size: .95rem;
+      color: var(--cinza-texto);
+      margin-bottom: 12px;
+    }
+
+    .aviso__texto {
+      font-size: .92rem;
+      color: var(--cinza-texto);
+      line-height: 1.7;
+      margin-bottom: 8px;
+    }
+
+    .aviso__texto strong { color: #333; }
+
+    .aviso__assinatura {
+      font-style: italic;
+      font-weight: 700;
+      font-size: .92rem;
+      color: #444;
+      margin-top: 10px;
+    }
+
+
+    img.imgTutorial {
+      margin-bottom: 94px;
+      width: -webkit-fill-available;
+    }
+
+    /* =============================================
+       SEÇÃO SALAS DE AULA
+    ============================================= */
+    .salas-cabecalho {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .salas-cabecalho__busca,
+    .salas-cabecalho__categoria {
+      flex: 1;
+      padding: 11px 16px;
+      border: 1px solid var(--cinza-borda);
+      border-radius: var(--radius-input);
+      background: var(--branco);
+      font-family: 'Open Sans', sans-serif;
+      font-size: .92rem;
+      color: #888;
+      outline: none;
+      cursor: pointer;
+      transition: border-color .2s;
+      appearance: none;
+    }
+
+    .salas-cabecalho__busca:focus,
+    .salas-cabecalho__categoria:focus {
+      border-color: var(--azul-medio);
+      color: #333;
+    }
+
+    /* Grade de cursos */
+    .cursos-titulo {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 16px;
+    }
+
+    .cursos-grade {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      column-gap: 40px;
+      padding-bottom: 5rem;
+    }
+
+    /* Card de curso */
+    .curso-card {
+      position: relative;
+      background: var(--branco);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: var(--sombra-card);
+      transition: transform .22s ease, box-shadow .22s ease;
+      cursor: pointer;
+    }
+
+    .curso-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.14);
+    }
+
+    .curso-card__full-link {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .curso-card__rodape > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .curso-card__thumbnail {
+      width: 100%;
+      height: 155px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Miniatura placeholder com código */
+    .curso-card__imagem, .card__imagem {
+      width: 100%;
+      height: 155px;
+    }
+
+
+
+    .curso-card__corpo {
+      padding: 14px 16px 16px;
+    }
+
+    .curso-card__codigo {
+      font-size: .75rem;
+      color: #999;
+      margin-bottom: 5px;
+    }
+
+    .curso-card__nome {
+      font-size: .85rem;
+      color: #333;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+
+    .curso-card__rodape {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .curso-card__link-instrutores {
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--azul-medio);
+      cursor: pointer;
+      transition: color .18s;
+    }
+    .curso-card__link-instrutores:hover { color: var(--azul-escuro); }
+
+    .instrutores-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .balao-instrutores {
+      display: none; 
+      position: absolute;
+      bottom: 120%;    
+      left: 0;        
+      width: 300px;
+      max-height: 400px;
+      background: white;
+      border: 1px solid #ccc;
+      box-shadow: 0 -4px 10px rgba(0,0,0,0.1); 
+      z-index: 100;
+      border-radius: 4px;
+    }
+
+    .balao-instrutores.ativo {
+      display: block;
+    }
+
+    .balao-conteudo {
+      padding: 12px;
+    }
+
+
+    .instrutor-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.85rem;
+      color: #333;
+    }
+
+    .instrutor-item:last-child {
+      border-bottom: none;
+    }
+
+    .instrutor-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #eee;
+      object-fit: cover;
+    }
+
+    .container-icone {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      
+      /* MUDAR COR DO FUNDO AQUI */
+      background-color: #b7b7b7; /* Azul Senac */
+      
+      border-radius: 22px; /* 50% para redondo, ou menos para quadrado suave */
+    }
+
+  
+
+    .curso-card__favorito {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      transition: transform .18s;
+    }
+    .curso-card__favorito:hover { transform: scale(1.2); }
+    .curso-card__favorito svg {
+      width: 22px;
+      height: 22px;
+      stroke: #aaa;
+      fill: none;
+      stroke-width: 1.8;
+      transition: stroke .18s, fill .18s;
+    }
+    .curso-card__favorito:hover svg { stroke: var(--laranja-destaque); }
+    .curso-card__favorito.ativo svg {
+      fill: var(--laranja-destaque);
+      stroke: var(--laranja-destaque);
+    }
+
+    /* =============================================
+       RESPONSIVO
+    ============================================= */
+    @media (max-width: 768px) {
+      .cabecalho { padding: 0 20px; height: auto; padding: 12px 20px; flex-wrap: wrap; gap: 10px; }
+      .cabecalho__nav { gap: 16px; }
+      .banner { height: auto; padding: 24px 20px; }
+      .banner__titulo { font-size: 1.7rem; }
+      .banner__icone-livros, .banner__icone-notebook, .banner__foto-esquerda { display: none; }
+      .principal { margin: 20px auto; }
+      .salas-cabecalho { flex-direction: column; }
+      .cursos-grade { grid-template-columns: 1fr; }
+    }

@@ -1,0 +1,497 @@
+/* =============================================
+   VARIÁVEIS E RESET
+   (Herda o mesmo token set do homeStyle.css)
+============================================= */
+:root {
+  --azul-senac:       #1a4f8a;
+  --azul-escuro:      #143d6e;
+  --azul-medio:       #1e6cb5;
+  --azul-claro:       #d6eaf8;
+  --azul-semestre:    #a8cce4;   /* tom claro dos botões inativos de semestre */
+  --laranja-destaque: #f0a500;
+  --branco:           #ffffff;
+  --cinza-fundo:      #f4f6f8;
+  --cinza-texto:      #555555;
+  --cinza-borda:      #dde3ea;
+  --sombra-card:      0 2px 8px rgba(0, 0, 0, .10);
+  --radius-card:      8px;
+  --radius-btn:       10px;
+  --transition:       .2s ease;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: var(--cinza-fundo);
+  color: var(--cinza-texto);
+  min-height: 100vh;
+  margin: 0;
+    padding: 0;
+}
+
+a   { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+/* Utilitário: visível apenas para leitores de tela */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Estilo da Barra de Status */
+.status-sistema {
+  background-color: var(--branco);
+  border-bottom: 1px solid var(--cinza-borda);
+  padding: 10px 0;
+  position: sticky;
+  top: 115px; /* Altura do seu header */
+  z-index: 99; /* Logo abaixo do z-index 100 do header */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.status-sistema__inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--cinza-texto);
+}
+
+.status-sistema__separador {
+  color: #ccc;
+  font-weight: 400;
+}
+
+#status-materia {
+  color: var(--azul-senac);
+}
+
+/* =============================================
+   CABEÇALHO / NAVBAR
+   (idêntico ao AVA.html)
+============================================= */
+.cabecalho {
+  background: var(--azul-senac);
+  padding: 0 40px;
+  height: 115px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .25);
+}
+
+.cabecalho__logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+img.logo__senac {
+  width: 9rem;
+}
+
+.cabecalho__usuario {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  color: var(--branco);
+  font-size: .95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.user__perfil {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--branco);
+}
+
+.cabecalho__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #4a7ab5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cabecalho__avatar svg {
+  width: 22px;
+  height: 22px;
+  fill: var(--branco);
+}
+
+.cabecalho__nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.cabecalho__link {
+  color: var(--branco);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: .95rem;
+  letter-spacing: .4px;
+  transition: opacity var(--transition);
+}
+.cabecalho__link:hover { opacity: .8; }
+
+.cabecalho__logoff {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--branco);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: .95rem;
+  transition: opacity var(--transition);
+}
+.cabecalho__logoff:hover { opacity: .8; }
+.cabecalho__logoff svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: var(--branco);
+  stroke-width: 2.2;
+}
+
+/* =============================================
+   BREADCRUMB DO CURSO
+============================================= */
+.curso-breadcrumb {
+  background: var(--cinza-borda);
+  border-bottom: 1px solid #c8d1da;
+}
+
+.curso-breadcrumb__inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.curso-breadcrumb__titulo {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #222;
+  line-height: 1.5;
+}
+
+.curso-breadcrumb__codigo {
+  font-weight: 700;
+  color: #222;
+}
+
+/* =============================================
+   CONTEÚDO PRINCIPAL
+============================================= */
+.principal {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+}
+
+/* =============================================
+   SEMESTRES — Grade de botões
+============================================= */
+.semestres {
+  margin-bottom: 48px;
+}
+
+.semestres__grade {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin: 54px 0px 9rem 0px;
+}
+
+.semestre-btn {
+  min-width: 220px;
+  padding: 28px 79px;
+  border: none;
+  border-radius: var(--radius-btn);
+  background: var(--azul-escuro);
+  color: var(--branco);
+  font-family: 'Raleway', sans-serif;
+  font-size: 2.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  box-shadow: var(--sombra-card);
+}
+
+.semestre-btn:hover {
+  background: var(--azul-medio);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, .18);
+}
+
+.semestre-btn--ativo {
+  background: var(--azul-semestre);
+  color: var(--azul-escuro);
+}
+
+.semestre-btn--ativo:hover {
+  background: #8fbdd9;
+  color: var(--azul-escuro);
+}
+
+/* =============================================
+   DISCIPLINAS — Título + grade de pills
+============================================= */
+.disciplinas {
+  margin-bottom: 32px;
+}
+
+.disciplinas__titulo {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #111;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.disciplinas__grade {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.disciplina-btn {
+  padding: 18px 20px;
+  border: none;
+  border-radius: var(--radius-btn);
+  background: var(--azul-semestre);
+  color: var(--azul-escuro);
+  font-family: 'Raleway', sans-serif;
+  font-size: .9rem;
+  font-weight: 700;
+  line-height: 1.4;
+  cursor: pointer;
+  text-align: center;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  box-shadow: var(--sombra-card);
+}
+
+.disciplina-btn:hover {
+  background: #8fbdd9;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0, 0, 0, .14);
+}
+
+.disciplina-btn--ativo {
+  background: var(--azul-escuro);
+  color: var(--branco);
+}
+
+.disciplina-btn--ativo:hover {
+  background: var(--azul-medio);
+}
+
+/* =============================================
+   DIVISOR
+============================================= */
+.divisor {
+  border: none;
+  border-top: 1px solid var(--cinza-borda);
+  margin: 36px 0;
+}
+
+/* =============================================
+   MATÉRIA — Seção de conteúdo
+============================================= */
+.materia__titulo {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 24px;
+}
+
+/* =============================================
+   BIMESTRE — Accordion
+============================================= */
+.bimestre {
+  margin-bottom: 8px;
+}
+
+/* Cabeçalho / trigger do accordion */
+.bimestre__cabecalho {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 10px 4px;
+  cursor: pointer;
+  text-align: left;
+  transition: opacity var(--transition);
+}
+
+.bimestre__cabecalho:hover { opacity: .75; }
+
+/* Ícone pasta */
+.bimestre__icone-pasta svg {
+  width: 36px;
+  height: 36px;
+  fill: #222;
+  display: block;
+}
+
+.bimestre__label {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #222;
+  flex: 1;
+}
+
+/* Seta de accordion */
+.bimestre__seta svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: #555;
+  stroke-width: 2.5;
+  display: block;
+  transition: transform .25s ease;
+}
+
+.bimestre__cabecalho--aberto .bimestre__seta svg {
+  transform: rotate(180deg);
+}
+
+/* Lista de materiais dentro do bimestre */
+.bimestre__lista {
+  list-style: none;
+  padding-left: 52px;
+  overflow: hidden;
+  max-height: 600px;
+  transition: max-height .3s ease, opacity .3s ease;
+  opacity: 1;
+}
+
+.bimestre__lista--fechada {
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* =============================================
+   ITEM DE MATERIAL
+============================================= */
+.material-item {
+  margin-bottom: 20px;
+}
+
+.material-item__link {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: opacity var(--transition);
+}
+
+.material-item__link:hover { opacity: .7; }
+
+/* Ícone do arquivo */
+.material-item__icone svg {
+  width: 34px;
+  height: 34px;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* Nome do material */
+.material-item__nome {
+  font-family: 'Open Sans', sans-serif;
+  font-size: .97rem;
+  color: #222;
+  line-height: 1.4;
+}
+
+.material-item__nome--bold {
+  font-weight: 700;
+}
+
+/* =============================================
+   RESPONSIVO
+============================================= */
+@media (max-width: 900px) {
+  .disciplinas__grade {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .cabecalho {
+    padding: 12px 20px;
+    height: auto;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .cabecalho__usuario { gap: 20px; }
+  .cabecalho__nav { gap: 16px; }
+
+  .principal {
+    padding: 24px 16px 48px;
+  }
+
+  .semestres__grade {
+    gap: 12px;
+  }
+
+  .semestre-btn {
+    min-width: 140px;
+    padding: 20px 16px;
+    font-size: .9rem;
+  }
+
+  .disciplinas__grade {
+    grid-template-columns: 1fr;
+  }
+
+  .disciplinas__titulo {
+    font-size: 1.5rem;
+  }
+
+  .bimestre__lista {
+    padding-left: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .semestres__grade {
+    justify-content: flex-start;
+  }
+
+  .semestre-btn {
+    min-width: calc(50% - 6px);
+  }
+}
