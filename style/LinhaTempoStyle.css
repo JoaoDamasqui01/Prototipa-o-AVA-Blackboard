@@ -1,0 +1,510 @@
+/* =============================================
+   VARIÁVEIS E RESET
+   (mesmo token set do projeto Senac)
+============================================= */
+:root {
+  --azul-senac:        #1a4f8a;
+  --azul-escuro:       #143d6e;
+  --azul-medio:        #1e6cb5;
+  --azul-claro:        #d6eaf8;
+  --azul-trilha:       #1e6cb5;
+  --vermelho-vencido:  #c0392b;
+  --vermelho-claro:    #f9e5e3;
+  --vermelho-icone:    #e05252;
+  --laranja-destaque:  #f0a500;
+  --branco:            #ffffff;
+  --cinza-fundo:       #f4f6f8;
+  --cinza-card:        #ffffff;
+  --cinza-texto:       #555555;
+  --cinza-borda:       #dde3ea;
+  --cinza-data:        #999999;
+  --cinza-resumo:      #888888;
+  --sombra-card:       0 1px 4px rgba(0, 0, 0, .08);
+  --radius-card:       6px;
+  --transition:        .22s ease;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: var(--cinza-fundo);
+  color: var(--cinza-texto);
+  min-height: 100vh;
+}
+
+a   { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+/* =============================================
+   CABEÇALHO / NAVBAR
+   (padrão do projeto)
+============================================= */
+.cabecalho {
+  background: var(--azul-senac);
+  padding: 0 40px;
+  height: 115px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .25);
+}
+
+.cabecalho__logo {
+  display: flex;
+  align-items: center;
+}
+
+img.logo__senac {
+  width: 9rem;
+}
+
+.cabecalho__usuario {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  color: var(--branco);
+  font-size: .95rem;
+  font-weight: 600;
+}
+
+.user__perfil {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--branco);
+}
+
+.cabecalho__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #4a7ab5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cabecalho__avatar svg {
+  width: 22px;
+  height: 22px;
+  fill: var(--branco);
+}
+
+.cabecalho__nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.cabecalho__link {
+  color: var(--branco);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: .95rem;
+  letter-spacing: .4px;
+  transition: opacity var(--transition);
+}
+
+.cabecalho__link:hover          { opacity: .8; }
+.cabecalho__link--ativo         { padding-bottom: 2px; }
+
+.cabecalho__logoff {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--branco);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: .95rem;
+  transition: opacity var(--transition);
+}
+.cabecalho__logoff:hover { opacity: .8; }
+.cabecalho__logoff svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: var(--branco);
+  stroke-width: 2.2;
+}
+
+/* =============================================
+   LAYOUT PRINCIPAL
+============================================= */
+.principal {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+}
+
+/* =============================================
+   CONTAINER DO FLUXO
+============================================= */
+.fluxo-container {
+  background: var(--branco);
+  border-radius: 0 0 var(--radius-card) var(--radius-card);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .07);
+  padding: 32px 40px 48px;
+  margin-top: 0;
+  min-height: calc(100vh - 115px);
+}
+
+.fluxo-container__topo {
+  margin-bottom: 28px;
+}
+
+.fluxo-titulo {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+.fluxo-divisor {
+  border: none;
+  border-top: 1px solid var(--cinza-borda);
+}
+
+/* =============================================
+   FILTRO
+============================================= */
+.fluxo-filtro {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 36px;
+}
+
+.fluxo-filtro__label {
+  position: absolute;
+  top: -9px;
+  left: 10px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: .72rem;
+  color: var(--azul-medio);
+  background: var(--branco);
+  padding: 0 4px;
+  z-index: 1;
+  font-weight: 600;
+  letter-spacing: .3px;
+}
+
+.fluxo-filtro__wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.fluxo-filtro__select {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 220px;
+  padding: 10px 40px 10px 14px;
+  border: 1.5px solid var(--azul-medio);
+  border-radius: 4px;
+  background: var(--branco);
+  font-family: 'Open Sans', sans-serif;
+  font-size: .9rem;
+  color: #333;
+  cursor: pointer;
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.fluxo-filtro__select:focus {
+  border-color: var(--azul-escuro);
+  box-shadow: 0 0 0 3px rgba(30, 108, 181, .15);
+}
+
+.fluxo-filtro__icone {
+  position: absolute;
+  right: 12px;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.fluxo-filtro__icone svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: var(--azul-medio);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+}
+
+/* =============================================
+   LINHA DO TEMPO — wrapper geral
+============================================= */
+.linha-tempo {
+  position: relative;
+  padding-left: 0;
+}
+
+/* Trilha vertical contínua */
+.linha-tempo__trilha {
+  position: absolute;
+  left: 148px;       /* alinha com o centro dos ícones */
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--cinza-borda);
+  z-index: 0;
+}
+
+/* =============================================
+   GRUPO (Importantes / Próximos / Recentes)
+============================================= */
+.grupo-tempo {
+  position: relative;
+  margin-bottom: 40px;
+  transition: opacity .3s ease;
+}
+
+.grupo-tempo--vazio {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Marcador de seção (bolinha na trilha) */
+.grupo-tempo__marcador {
+  position: absolute;
+  left: 142px;      /* centraliza na trilha (148px - 6px raio) */
+  top: 4px;
+  z-index: 1;
+}
+
+.grupo-tempo__bolinha {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--cinza-borda);
+  background: var(--branco);
+}
+
+/* Título do grupo */
+.grupo-tempo__titulo {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #444;
+  margin-left: 180px;   /* empurra além da trilha */
+  margin-bottom: 16px;
+  padding-top: 2px;
+}
+
+.grupo-tempo__titulo--importante {
+  color: var(--vermelho-icone);
+}
+
+/* =============================================
+   ITEM DE ATIVIDADE
+============================================= */
+.atividade-item {
+  display: grid;
+  grid-template-columns: 120px 48px 1fr auto;
+  align-items: flex-start;
+  gap: 0 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--cinza-borda);
+  position: relative;
+  transition: opacity .3s ease, transform .3s ease, max-height .3s ease;
+  overflow: hidden;
+}
+
+.atividade-item:last-child {
+  border-bottom: none;
+}
+
+/* Estado: sendo ignorado */
+.atividade-item--ignorando {
+  opacity: 0;
+  transform: translateX(-16px);
+  max-height: 0;
+  padding: 0;
+  border: none;
+}
+
+/* ---- Data ---- */
+.atividade-item__data {
+  font-family: 'Open Sans', sans-serif;
+  font-size: .78rem;
+  color: var(--cinza-data);
+  text-align: right;
+  padding-right: 12px;
+  padding-top: 3px;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+/* ---- Ícone de tarefa ---- */
+.atividade-item__icone {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.atividade-item__icone svg {
+  width: 36px;
+  height: 36px;
+  fill: none;
+  stroke: #555;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Ícone vermelho nos importantes */
+.atividade-item__icone--importante svg {
+  stroke: var(--vermelho-icone);
+}
+
+/* ---- Corpo do item ---- */
+.atividade-item__corpo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.atividade-item__curso {
+  font-family: 'Open Sans', sans-serif;
+  font-size: .85rem;
+  font-weight: 700;
+  color: #222;
+  line-height: 1.45;
+}
+
+.atividade-item__detalhe {
+  font-family: 'Open Sans', sans-serif;
+  font-size: .82rem;
+  color: var(--cinza-texto);
+  line-height: 1.5;
+}
+
+.atividade-item__detalhe--vencido {
+  color: var(--vermelho-vencido);
+  font-weight: 600;
+}
+
+.atividade-item__detalhe--resumo {
+  color: var(--cinza-resumo);
+  font-style: italic;
+}
+
+/* ---- Ações (botão Ignorar) ---- */
+.atividade-item__acoes {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 2px;
+  min-width: 80px;
+  justify-content: flex-end;
+}
+
+/* =============================================
+   BOTÃO IGNORAR
+============================================= */
+.btn-ignorar {
+  padding: 7px 16px;
+  background: var(--cinza-fundo);
+  border: 1px solid var(--cinza-borda);
+  border-radius: 4px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: .8rem;
+  color: #555;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition), color var(--transition);
+  white-space: nowrap;
+}
+
+.btn-ignorar:hover {
+  background: #e8ecf0;
+  border-color: #c0c8d0;
+  color: #333;
+}
+
+.btn-ignorar:active {
+  background: #dde3ea;
+  transform: scale(.97);
+}
+
+/* =============================================
+   RESPONSIVO
+============================================= */
+@media (max-width: 860px) {
+  .fluxo-container {
+    padding: 24px 20px 40px;
+    border-left: none;
+  }
+
+  .linha-tempo__trilha { display: none; }
+
+  .grupo-tempo__marcador { display: none; }
+
+  .grupo-tempo__titulo {
+    margin-left: 0;
+    font-size: 1.1rem;
+  }
+
+  .atividade-item {
+    grid-template-columns: 80px 36px 1fr auto;
+    gap: 0 10px;
+  }
+
+  .atividade-item__data {
+    font-size: .72rem;
+    padding-right: 6px;
+  }
+
+  .atividade-item__icone {
+    width: 32px;
+    height: 32px;
+  }
+
+  .atividade-item__icone svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .atividade-item__curso {
+    font-size: .8rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .cabecalho {
+    padding: 12px 20px;
+    height: auto;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .cabecalho__usuario { gap: 20px; }
+
+  .fluxo-filtro__select { width: 180px; }
+
+  .atividade-item {
+    grid-template-columns: 60px 32px 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  /* Botão Ignorar vai para linha abaixo no mobile */
+  .atividade-item__acoes {
+    grid-column: 2 / 4;
+    justify-content: flex-start;
+    padding-top: 8px;
+    min-width: auto;
+  }
+}

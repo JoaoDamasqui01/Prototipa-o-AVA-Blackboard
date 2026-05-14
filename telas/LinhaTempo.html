@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linha do Tempo | Senac AVA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style/linhaTempoStyle.css" />
+</head>
+<body>
+
+  <!-- ==================== CABEÇALHO ==================== -->
+  <header class="cabecalho" role="banner">
+
+    <a href="AVA.html" class="cabecalho__logo" aria-label="Senac – página inicial">
+      <img class="logo__senac" src="../imagem/senac.png" alt="Logo Senac" />
+    </a>
+
+    <div class="cabecalho__usuario">
+      <a class="user__perfil" href="PerfilUsuario.html" aria-label="Perfil de Rafael Rodrigues">
+        <div class="cabecalho__avatar" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+          </svg>
+        </div>
+        <span>Rafael Rodrigues</span>
+      </a>
+      <a href="AVA.html#titulo-salas" class="cabecalho__link">Sala de Aula</a>
+      <a href="LinhaTempo.html" class="cabecalho__link cabecalho__link--ativo" aria-current="page">Linha do tempo</a>
+    </div>
+
+    <nav class="cabecalho__nav" aria-label="Menu principal">
+      <a href="Login.html" class="cabecalho__logoff" aria-label="Fazer Logoff">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+          <polyline points="16 17 21 12 16 7"/>
+          <line x1="21" y1="12" x2="9" y2="12"/>
+        </svg>
+        Fazer Logoff
+      </a>
+    </nav>
+
+  </header>
+
+  <!-- ==================== CONTEÚDO PRINCIPAL ==================== -->
+  <main class="principal" id="conteudo-principal">
+
+    <div class="fluxo-container">
+
+      <!-- ---- Cabeçalho da página ---- -->
+      <div class="fluxo-container__topo">
+        <h1 class="fluxo-titulo">Fluxo de atividade</h1>
+        <hr class="fluxo-divisor" aria-hidden="true" />
+      </div>
+
+      <!-- ---- Filtro ---- -->
+      <div class="fluxo-filtro" role="search" aria-label="Filtrar atividades">
+        <label class="fluxo-filtro__label" for="filtro-select">Filtro</label>
+        <div class="fluxo-filtro__wrapper">
+          <select
+            class="fluxo-filtro__select"
+            id="filtro-select"
+            aria-label="Selecionar filtro de atividades"
+            onchange="filtrarAtividades(this.value)"
+          >
+            <option value="todos">Mostrar tudo</option>
+            <option value="importantes">Importantes</option>
+            <option value="proximos">Próximos eventos</option>
+            <option value="recentes">Recentes</option>
+          </select>
+          <span class="fluxo-filtro__icone" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+
+      <!-- ==================== LINHA DO TEMPO ==================== -->
+      <div class="linha-tempo" role="feed" aria-label="Linha do tempo de atividades">
+
+        <!-- Trilha vertical azul (decorativa) -->
+        <div class="linha-tempo__trilha" aria-hidden="true"></div>
+
+        <!-- ============================================
+             GRUPO: IMPORTANTES
+        ============================================ -->
+        <section
+          class="grupo-tempo"
+          data-grupo="importantes"
+          aria-labelledby="grupo-importantes"
+        >
+          <!-- Marcador de grupo -->
+          <div class="grupo-tempo__marcador" aria-hidden="true">
+            <span class="grupo-tempo__bolinha grupo-tempo__bolinha--vazio"></span>
+          </div>
+
+          <h2 class="grupo-tempo__titulo grupo-tempo__titulo--importante" id="grupo-importantes">
+            Importantes
+          </h2>
+
+          <!-- Item 1 — Importante -->
+          <article
+            class="atividade-item atividade-item--importante"
+            data-grupo="importantes"
+            aria-label="Atividade importante vencida"
+          >
+            <!-- Data -->
+            <time class="atividade-item__data" datetime="2026-04-24">
+              24 de abr de 2026
+            </time>
+
+            <!-- Ícone tarefa vermelho -->
+            <div class="atividade-item__icone atividade-item__icone--importante" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <line x1="7" y1="8"  x2="17" y2="8"/>
+                <line x1="7" y1="12" x2="17" y2="12"/>
+                <line x1="7" y1="16" x2="13" y2="16"/>
+              </svg>
+            </div>
+
+            <!-- Conteúdo -->
+            <div class="atividade-item__corpo">
+              <p class="atividade-item__curso">
+               Faculdade Senac Maringá - Tecnologia em Análise e Desenvolvimento de Sistemas
+              </p>
+              <p class="atividade-item__detalhe atividade-item__detalhe--vencido">
+                <a href="SalaAula.html" target="_blank" rel="noopener noreferrer">
+                    Vencido: Atividade - 24/04
+                </a>
+              </p>
+              <p class="atividade-item__detalhe">
+                Data de entrega: 08/05/26 23:59 (BRT)
+              </p>
+            </div>
+
+            <!-- Ação -->
+            <div class="atividade-item__acoes">
+              <button
+                class="btn-ignorar"
+                aria-label="Ignorar esta atividade"
+                onclick="ignorarItem(this)"
+              >
+                Ignorar
+              </button>
+            </div>
+          </article>
+
+          <!-- Item 2 — Importante -->
+          <article
+            class="atividade-item atividade-item--importante"
+            data-grupo="importantes"
+            aria-label="Atividade importante vencida"
+          >
+            <time class="atividade-item__data" datetime="2026-05-06">
+              6 de mai de 2026
+            </time>
+
+            <div class="atividade-item__icone atividade-item__icone--importante" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <line x1="7" y1="8"  x2="17" y2="8"/>
+                <line x1="7" y1="12" x2="17" y2="12"/>
+                <line x1="7" y1="16" x2="13" y2="16"/>
+              </svg>
+            </div>
+
+            <div class="atividade-item__corpo">
+              <p class="atividade-item__curso">
+               Faculdade Senac Maringá - Tecnologia em Análise e Desenvolvimento de Sistemas
+              </p>
+              <p class="atividade-item__detalhe atividade-item__detalhe--vencido">
+                <a href="SalaAula.html" target="_blank" rel="noopener noreferrer">
+                    Vencido: Trabalho Final Governança em TI
+                </a>
+              </p>
+              <p class="atividade-item__detalhe">
+                Data de entrega: 13/05/26 19:00 (BRT)
+              </p>
+            </div>
+
+            <div class="atividade-item__acoes">
+              <button
+                class="btn-ignorar"
+                aria-label="Ignorar esta atividade"
+                onclick="ignorarItem(this)"
+              >
+                Ignorar
+              </button>
+            </div>
+          </article>
+
+        </section>
+        <!-- /IMPORTANTES -->
+
+        <!-- ============================================
+             GRUPO: PRÓXIMOS EVENTOS
+        ============================================ -->
+        <section
+          class="grupo-tempo"
+          data-grupo="proximos"
+          aria-labelledby="grupo-proximos"
+        >
+          <div class="grupo-tempo__marcador" aria-hidden="true">
+            <span class="grupo-tempo__bolinha grupo-tempo__bolinha--vazio"></span>
+          </div>
+
+          <h2 class="grupo-tempo__titulo" id="grupo-proximos">
+            Próximos eventos
+          </h2>
+
+          <!-- Item 1 — Próximo -->
+          <article
+            class="atividade-item"
+            data-grupo="proximos"
+            aria-label="Próximo evento"
+          >
+            <time class="atividade-item__data" datetime="2026-05-07">
+              7 de mai de 2026
+            </time>
+
+            <div class="atividade-item__icone" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <line x1="7" y1="8"  x2="17" y2="8"/>
+                <line x1="7" y1="12" x2="17" y2="12"/>
+                <line x1="7" y1="16" x2="13" y2="16"/>
+              </svg>
+            </div>
+
+            <div class="atividade-item__corpo">
+              <p class="atividade-item__curso">
+               Faculdade Senac Maringá - Tecnologia em Análise e Desenvolvimento de Sistemas
+              </p>
+              <p class="atividade-item__detalhe">
+                <a href="SalaAula.html" target="_blank" rel="noopener noreferrer">
+                    Data de entrega: UX - Avaliação com Usuários
+                </a>
+              </p>
+              <p class="atividade-item__detalhe">
+                Data de entrega: 21/05/26 18:36 (BRT)
+              </p>
+            </div>
+
+            <!-- Sem botão Ignorar nos próximos -->
+            <div class="atividade-item__acoes"></div>
+          </article>
+
+        </section>
+        <!-- /PRÓXIMOS EVENTOS -->
+
+        <!-- ============================================
+             GRUPO: RECENTES
+        ============================================ -->
+        <section
+          class="grupo-tempo"
+          data-grupo="recentes"
+          aria-labelledby="grupo-recentes"
+        >
+          <div class="grupo-tempo__marcador" aria-hidden="true">
+            <span class="grupo-tempo__bolinha grupo-tempo__bolinha--vazio"></span>
+          </div>
+
+          <h2 class="grupo-tempo__titulo" id="grupo-recentes">
+            Recentes
+          </h2>
+
+          <!-- Item 1 — Recente -->
+          <article
+            class="atividade-item"
+            data-grupo="recentes"
+            aria-label="Atividade recente"
+          >
+            <time class="atividade-item__data" datetime="2026-05-13">
+              22 horas
+            </time>
+
+            <div class="atividade-item__icone" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <line x1="7" y1="8"  x2="17" y2="8"/>
+                <line x1="7" y1="12" x2="17" y2="12"/>
+                <line x1="7" y1="16" x2="13" y2="16"/>
+              </svg>
+            </div>
+
+            <div class="atividade-item__corpo">
+              <p class="atividade-item__curso">
+               Faculdade Senac Maringá - Tecnologia em Análise e Desenvolvimento de Sistemas
+              </p>
+              <p class="atividade-item__detalhe">
+                <a href="SalaAula.html" target="_blank" rel="noopener noreferrer">
+                    Adicionado: Trabalhos
+                </a>
+              </p>
+              <p class="atividade-item__detalhe atividade-item__detalhe--resumo">
+    
+                Tema: Técnicas de inspeção e revisão de software (walkthrough, inspeções formais, auditorias). Tr...
+              </p>
+            </div>
+
+            <div class="atividade-item__acoes"></div>
+          </article>
+
+          <!-- Item 2 — Recente (extra para enriquecer) -->
+          <article
+            class="atividade-item"
+            data-grupo="recentes"
+            aria-label="Atividade recente"
+          >
+            <time class="atividade-item__data" datetime="2026-05-13">
+              1 dia
+            </time>
+
+            <div class="atividade-item__icone" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <line x1="7" y1="8"  x2="17" y2="8"/>
+                <line x1="7" y1="12" x2="17" y2="12"/>
+                <line x1="7" y1="16" x2="13" y2="16"/>
+              </svg>
+            </div>
+
+            <div class="atividade-item__corpo">
+              <p class="atividade-item__curso">
+               Faculdade Senac Maringá - Tecnologia em Análise e Desenvolvimento de Sistemas
+              </p>
+              <p class="atividade-item__detalhe">
+                <a href="SalaAula.html" target="_blank" rel="noopener noreferrer">
+                    Adicionado: Material de apoio
+                </a>
+              </p>
+              <p class="atividade-item__detalhe atividade-item__detalhe--resumo">
+                Slides da Aula 06 — Padrões de Projeto e Arquitetura de Software. Acesse pelo menu Conteúdo...
+              </p>
+            </div>
+
+            <div class="atividade-item__acoes"></div>
+          </article>
+
+        </section>
+        <!-- /RECENTES -->
+
+      </div>
+      <!-- /linha-tempo -->
+
+    </div>
+    <!-- /fluxo-container -->
+
+  </main>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+    /* =============================================
+       FILTRAR GRUPOS DA LINHA DO TEMPO
+    ============================================= */
+    function filtrarAtividades(valor) {
+      const grupos = document.querySelectorAll('.grupo-tempo');
+
+      grupos.forEach(grupo => {
+        if (valor === 'todos' || grupo.dataset.grupo === valor) {
+          grupo.hidden = false;
+        } else {
+          grupo.hidden = true;
+        }
+      });
+    }
+
+    /* =============================================
+       IGNORAR ITEM COM ANIMAÇÃO
+    ============================================= */
+    function ignorarItem(btn) {
+      const item = btn.closest('.atividade-item');
+
+      item.classList.add('atividade-item--ignorando');
+
+      item.addEventListener('transitionend', () => {
+        item.remove();
+
+        /* Se o grupo ficou vazio, remove o grupo inteiro */
+        const grupo = item.closest('.grupo-tempo');
+        if (grupo) {
+          const itensRestantes = grupo.querySelectorAll('.atividade-item');
+          if (itensRestantes.length === 0) {
+            grupo.classList.add('grupo-tempo--vazio');
+            grupo.addEventListener('transitionend', () => grupo.remove(), { once: true });
+          }
+        }
+      }, { once: true });
+    }
+  </script>
+
+</body>
+</html>
